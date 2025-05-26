@@ -22,12 +22,12 @@ This project begins by logging in to the API to retrieve a valid token:
 - The token is stored dynamically using a script in the **Tests** tab:
   ```javascript
   let response = pm.response.json();
-  pm.environment.set("authToken", response.token);
+  pm.collectionVariables.set("token", response.token);
   ```
 
 - All secured requests use this token in the `Authorization` header:
   ```http
-  Authorization: Bearer {{authToken}}
+  Authorization: Bearer {{token}}
   ```
 
 This approach simulates real-world API login flows and avoids manual token reuse.
@@ -43,10 +43,7 @@ This approach simulates real-world API login flows and avoids manual token reuse
 
 - Includes `form-data` and an image file.
 - The response returns the `productId`, which is stored for later use:
-  ```javascript
-  let response = pm.response.json();
-  pm.environment.set("productId", response.productId);
-  ```
+
 
 ### 🗑️ Delete Product
 
@@ -70,7 +67,7 @@ This approach simulates real-world API login flows and avoids manual token reuse
 - The response includes an `orderId`, saved using:
   ```javascript
   let response = pm.response.json();
-  pm.environment.set("orderId", response.orders[0]);
+  pm.collectionVariables.set("orderId", response.orders[0]);
   ```
 
 ### 📄 View Order Details
@@ -93,7 +90,7 @@ This approach simulates real-world API login flows and avoids manual token reuse
 
 This collection uses **chained requests** with Postman environment variables to automate:
 
-1. 🔐 Login → get `authToken`
+1. 🔐 Login → get `token`
 2. 🛍️ Add Product → store `productId`
 3. 🛒 Create Order → store `orderId`
 4. 📄 View Order → validate
@@ -119,18 +116,5 @@ This project represents a **complete end-to-end testing scenario** simulating an
 - Tests integration between product and order modules
 - Validates system behavior under realistic conditions
 
----
 
-## 📁 Project Structure
-
-| File/Folder                  | Description                                  |
-|-----------------------------|----------------------------------------------|
-| `My_API_Collection.json`    | Postman collection with all test requests    |
-| `README.md`                 | Full project documentation and workflow      |
-
----
-
-## 👩‍💻 Author
-
-**Rozan Abukweek**  
 QA Engineer | API Testing | Postman Automation
