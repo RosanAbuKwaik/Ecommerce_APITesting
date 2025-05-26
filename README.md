@@ -5,7 +5,7 @@ This project showcases API testing using Postman to interact with the Rahul Shet
 
 ## 🔗 Website Under Test
 
-- Web UI: [https://rahulshettyacademy.com/client/dashboard/dash](https://rahulshettyacademy.com/client/dashboard/dash)
+- Web UI: (https://rahulshettyacademy.com/client/)
 - Base API: `https://rahulshettyacademy.com/api/ecom/`
 
 ---
